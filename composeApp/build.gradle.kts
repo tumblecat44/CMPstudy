@@ -9,7 +9,10 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    id("com.google.devtools.ksp") version "2.1.0-1.0.29"
+    id("de.jensklingenberg.ktorfit") version "2.2.0"
 }
+val ktorfitVersion = "2.2.0"
 
 kotlin {
     androidTarget {
@@ -69,12 +72,13 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha10")
+            implementation("de.jensklingenberg.ktorfit:ktorfit-lib:$ktorfitVersion")
 
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
-            
+
         }
     }
 }
