@@ -73,7 +73,7 @@ val fontFamily
             h3 = h3.copy(fontFamily = fontFamily),
             h4 = h4.copy(fontFamily = fontFamily),
             h5 = h5.copy(fontFamily = fontFamily),
-            h6 = h6.copy(fontFamily = fontFamily),
+            h6 = h6.copy(fontFamily = fontFamily, fontWeight = FontWeight.Normal ),
             subtitle1 = subtitle1.copy(
                 fontFamily = fontFamily,
                 color = Color(0xFF9A70E2),
@@ -87,7 +87,7 @@ val fontFamily
                 color = Color(0xFF9A70E2),
             ),
             body1 = body1.copy(fontFamily = fontFamily),
-            body2 = body2.copy(fontFamily = fontFamily),
+            body2 = body2.copy(fontFamily = fontFamily, fontWeight = FontWeight.SemiBold),
             button = button.copy(
                 fontFamily = fontFamily,
                 color = Color.White,

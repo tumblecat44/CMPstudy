@@ -111,6 +111,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.ui.desktop)
     debugImplementation(compose.uiTooling)
 }
 

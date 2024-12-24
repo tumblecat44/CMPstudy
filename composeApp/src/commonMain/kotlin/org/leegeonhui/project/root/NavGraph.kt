@@ -13,7 +13,7 @@ fun NavGraph(
 ) {
     NavHost(
         navController = navController,
-        startDestination = NavGroup.MAIN
+        startDestination = NavGroup.LOGIN
     ){
         composable(NavGroup.MAIN){
             MainScreen(navController)

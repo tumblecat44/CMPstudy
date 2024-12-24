@@ -51,7 +51,7 @@ fun LoginScreen(
                 .padding(paddingValues)
                 .verticalScroll(verticalScroll)
         ) {
-            Column(modifier = Modifier.padding(bottom = 200.dp).width(400.dp).align(Alignment.Center).height(400.dp)){
+            Column(modifier = Modifier.fillMaxSize()){
                 MyTextField(
                     value = idText,
                     onValueChange = {
@@ -70,11 +70,13 @@ fun LoginScreen(
                         pwError = MyTextFieldState.DEFAULT},
                     hint = ""
                 )
-                Spacer(modifier = Modifier.weight(1f))
+
+            }
+            Column(modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 30.dp)){
                 MyButton(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = 16.dp),
+                        .padding(bottom = 4.dp),
                     text = "시작하기",
                     onClick = {
                         idError = MyTextFieldState.ERROR
@@ -82,8 +84,19 @@ fun LoginScreen(
                     },
                     contentPadding = PaddingValues(vertical = 17.5.dp)
                 )
+                MyButton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 16.dp),
+                    text = "회원가입",
+                    enabled = false,
+                    onClick = {
+                        idError = MyTextFieldState.ERROR
+                        pwError = MyTextFieldState.ERROR
+                    },
+                    contentPadding = PaddingValues(vertical = 17.5.dp)
+                )
             }
-
         }
 
     }

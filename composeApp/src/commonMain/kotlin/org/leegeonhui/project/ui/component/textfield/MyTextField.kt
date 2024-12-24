@@ -19,7 +19,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import org.leegeonhui.project.ui.theme.Black
 import org.leegeonhui.project.ui.theme.ErrorRed
 import org.leegeonhui.project.ui.theme.Gray
@@ -56,8 +59,8 @@ fun MyTextField(
     )
     Column(modifier = modifier) {
         if (info.isNotEmpty()) {
-            Text(info, style = fontFamily.button.copy(color = Black), color = Gray40)
-            Spacer(modifier = Modifier.height(8.dp))
+            Text(info, style = fontFamily.caption.copy(color = Black, fontSize = 14.sp), color = Gray40)
+            Spacer(modifier = Modifier.height(4.dp))
         }
         BasicTextField(modifier = Modifier
             .fillMaxWidth()
@@ -76,14 +79,14 @@ fun MyTextField(
             minLines = minLines,
             singleLine = singleLine,
             onValueChange = onValueChange,
-            textStyle = fontFamily.button.copy(color = Black),
+            textStyle = fontFamily.body2.copy(color = Black, fontWeight = FontWeight.Medium),
             maxLines = maxLines,
             decorationBox = { innerTextField ->
                 if (value.isEmpty()) {
                     Text(
                         modifier = Modifier.padding(start = 2.dp),
                         text = hint,
-                        style = fontFamily.button.copy(color = Black)
+                        style = fontFamily.body2.copy(color = Black, fontWeight = FontWeight.Medium)
 
                         ,
                         color = Black

@@ -21,6 +21,7 @@ import org.leegeonhui.project.root.NavGraph
 @Composable
 @Preview
 fun App() {
+
     val navController = rememberNavController()
     MaterialTheme {
         NavGraph(navController)

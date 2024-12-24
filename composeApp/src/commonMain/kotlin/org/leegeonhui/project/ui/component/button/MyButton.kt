@@ -21,7 +21,7 @@ fun MyButton(
     modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean = true,
-    shape: Shape = RoundedCornerShape(6.dp),
+    shape: Shape = RoundedCornerShape(4.dp),
     contentPadding: PaddingValues = PaddingValues(0.dp),
     onClick: () -> Unit,
 ) {
@@ -44,7 +44,8 @@ fun MyButton(
                     .padding(contentPadding),
                 text = text,
                 color = if (enabled) White else Color(0xFFCCCCD6),
-                style = fontFamily.button
+                style = fontFamily.body2
+
             )
         }
     }
