@@ -16,12 +16,13 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import iamfullstack.composeapp.generated.resources.Res
 import iamfullstack.composeapp.generated.resources.compose_multiplatform
+import org.koin.core.context.startKoin
+import org.leegeonhui.project.feature.auth.login.di.loginViewModelModule
 import org.leegeonhui.project.root.NavGraph
 
 @Composable
 @Preview
 fun App() {
-
     val navController = rememberNavController()
     MaterialTheme {
         NavGraph(navController)

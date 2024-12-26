@@ -34,7 +34,7 @@ kotlin {
     }
     
     jvm("desktop")
-    
+
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         moduleName = "composeApp"
@@ -54,15 +54,20 @@ kotlin {
         }
         binaries.executable()
     }
-    
+
     sourceSets {
         val desktopMain by getting
         
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.ktor.client.okhttp.v235)
+            implementation(libs.koin.android)
+            implementation(libs.koin.androidx.compose)
+
         }
         commonMain.dependencies {
+            // Compose BOM을 사용해 버전 통일
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
@@ -71,16 +76,19 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
-            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha10")
-            implementation("de.jensklingenberg.ktorfit:ktorfit-lib:$ktorfitVersion")
-
+            api(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.lifecycle.viewmodel)
+            implementation(libs.navigation.compose)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
-
         }
     }
+
+
 }
 
 android {
@@ -111,7 +119,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.ui.desktop)
+//    implementation(libs.androidx.ui.desktop)
     debugImplementation(compose.uiTooling)
 }
 

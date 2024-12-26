@@ -17,7 +17,6 @@ import org.leegeonhui.project.feature.auth.login.model.LoginState
 import org.leegeonhui.project.network.Token
 import org.leegeonhui.project.network.auth.login.model.request.LoginRequest
 import org.leegeonhui.project.network.auth.login.model.response.LoginResponse
-import org.leegeonhui.project.network.test.RoomApi
 
 class LoginViewModel(
 ) : ViewModel(), KoinComponent {
