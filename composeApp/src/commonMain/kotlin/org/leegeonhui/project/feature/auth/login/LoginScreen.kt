@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -21,7 +22,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import org.leegeonhui.project.feature.auth.login.model.LoginSideEffect
+import org.leegeonhui.project.root.NavGroup
 import org.leegeonhui.project.ui.component.MyTopAppBar
 import org.leegeonhui.project.ui.component.TopAppBarType
 import org.leegeonhui.project.ui.component.button.MyButton
@@ -31,13 +35,27 @@ import org.leegeonhui.project.ui.theme.White
 
 @Composable
 fun LoginScreen(
+
     navHostController: NavHostController
 ) {
+    val viewModel = LoginViewModel()
     var idText by remember { mutableStateOf("") }
     var pwText by remember { mutableStateOf("") }
     var idError by remember { mutableStateOf(MyTextFieldState.DEFAULT) }
     var pwError by remember { mutableStateOf(MyTextFieldState.DEFAULT) }
     val verticalScroll = rememberScrollState()
+    LaunchedEffect(viewModel) {
+        viewModel.uiEffect.collect { effect ->
+            when (effect) {
+                LoginSideEffect.Success -> {
+//                    navHostController.navigate(NavGroup.MAIN)
+                }
+
+                LoginSideEffect.Failed -> {
+                }
+            }
+        }
+    }
     MyTopAppBar(
         modifier = Modifier.imePadding(),
         type = TopAppBarType.SMALL,
@@ -79,8 +97,7 @@ fun LoginScreen(
                         .padding(bottom = 4.dp),
                     text = "시작하기",
                     onClick = {
-                        idError = MyTextFieldState.ERROR
-                        pwError = MyTextFieldState.ERROR
+                        viewModel.login(idText,pwText)
                     },
                     contentPadding = PaddingValues(vertical = 17.5.dp)
                 )

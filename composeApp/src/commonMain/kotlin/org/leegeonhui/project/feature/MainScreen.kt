@@ -20,7 +20,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import de.jensklingenberg.ktorfit.Ktorfit
 import org.leegeonhui.project.network.Token
 import org.leegeonhui.project.network.test.RoomApi
 import org.leegeonhui.project.ui.component.button.MyButton
@@ -35,19 +34,19 @@ fun MainScreen(
         mutableStateOf("")
     }
     var umzz by remember { mutableStateOf("") }
-    LaunchedEffect(Unit){
-        try{
-            val ktorfit = Ktorfit.Builder().baseUrl("http://43.203.204.218:8080/").build()
-            val exampleApi = ktorfit.create<RoomApi>()
-            val rooms = exampleApi.getRooms(Token.TOKEN)
-            umzz = rooms.toString()
-        } catch (e:Exception){
-            println(e)
-            umzz = e.toString()
-
-        }
-
-    }
+//    LaunchedEffect(Unit){
+//        try{
+//            val ktorfit = Ktorfit.Builder().baseUrl("http://43.203.204.218:8080/").build()
+//            val exampleApi = ktorfit.create<RoomApi>()
+//            val rooms = exampleApi.getRooms(Token.TOKEN)
+//            umzz = rooms.toString()
+//        } catch (e:Exception){
+//            println(e)
+//            umzz = e.toString()
+//
+//        }
+//
+//    }
 
     val verticalScroll = rememberScrollState()
     Column(modifier = Modifier.fillMaxSize()){

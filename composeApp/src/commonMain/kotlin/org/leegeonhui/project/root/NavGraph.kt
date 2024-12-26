@@ -19,7 +19,9 @@ fun NavGraph(
             MainScreen(navController)
         }
         composable(NavGroup.LOGIN) {
-            LoginScreen(navController)
+            LoginScreen(
+                navHostController = navController
+            )
         }
 
     }

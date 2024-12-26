@@ -1,4 +1,4 @@
-package org.leegeonhui.project.network.auth.login.response
+package org.leegeonhui.project.network.auth.login.model.response
 
 import org.leegeonhui.project.network.auth.login.LoginData
 
