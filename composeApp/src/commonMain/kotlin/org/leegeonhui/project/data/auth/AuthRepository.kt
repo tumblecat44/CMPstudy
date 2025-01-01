@@ -8,6 +8,5 @@ import org.leegeonhui.project.network.base.BaseResponse
 
 interface AuthRepository {
     suspend fun login(body: LoginRequest) : Flow<Result<LoginResponse>>
-
     suspend fun register(body: RegisterRequest) : Flow<Result<BaseResponse>>
 }

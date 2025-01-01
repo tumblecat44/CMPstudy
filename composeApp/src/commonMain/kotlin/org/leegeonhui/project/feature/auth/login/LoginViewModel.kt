@@ -20,7 +20,7 @@ import org.leegeonhui.project.network.auth.login.model.response.LoginResponse
 
 class LoginViewModel(
 ) : ViewModel(), KoinComponent {
-    private val authRepository : AuthRepository by inject()
+//    private val authRepository : AuthRepository by inject()
     private val _uiState = MutableStateFlow(LoginState())
     val uiState = _uiState.asStateFlow()
 
@@ -29,10 +29,10 @@ class LoginViewModel(
     val uiEffect: SharedFlow<LoginSideEffect> = _uiEffect.asSharedFlow()
 
     fun login(email: String, password: String) = viewModelScope.launch {
-        authRepository.login(LoginRequest(email,password)).collect { result ->
-            when (result) {
-
-            }
-        }
+//        authRepository.login(LoginRequest(email,password)).collect { result ->
+//            when (result) {
+//
+//            }
+//        }
     }
 }

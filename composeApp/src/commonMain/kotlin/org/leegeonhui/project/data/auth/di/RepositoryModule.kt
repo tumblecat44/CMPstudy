@@ -5,8 +5,9 @@ import org.koin.dsl.module
 import org.leegeonhui.project.data.auth.AuthRepository
 import org.leegeonhui.project.data.auth.repository.AuthRepositoryImpl
 
-val loginRepositoryModule = module {
-    single<AuthRepository> {
-        AuthRepositoryImpl(get())
-    }
-}
+
+//val loginRepositoryModule = module {
+//    single<AuthRepository> {
+//        AuthRepositoryImpl(get())
+//    }
+//}

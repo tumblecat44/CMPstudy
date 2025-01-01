@@ -10,9 +10,14 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowPosition
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
+import org.koin.core.context.startKoin
+//import org.leegeonhui.project.data.auth.di.loginRepositoryModule
+import org.leegeonhui.project.feature.auth.login.di.loginViewModelModule
 
 fun main() = application {
-    initKoin()
+    startKoin {
+        modules(loginViewModelModule)
+    }
     Window(
         onCloseRequest = ::exitApplication,
         title = "IamFullStack",
