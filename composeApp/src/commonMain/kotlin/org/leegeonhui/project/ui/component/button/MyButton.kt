@@ -4,7 +4,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,6 +16,7 @@ import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
 import org.leegeonhui.project.ui.component.animation.bounceClick
+import org.leegeonhui.project.ui.theme.Gray40
 import org.leegeonhui.project.ui.theme.fontFamily
 
 @Composable
@@ -23,6 +26,7 @@ fun MyButton(
     enabled: Boolean = true,
     shape: Shape = RoundedCornerShape(4.dp),
     contentPadding: PaddingValues = PaddingValues(0.dp),
+    loading: Boolean = false,
     onClick: () -> Unit,
 ) {
     Box(
@@ -38,15 +42,25 @@ fun MyButton(
                     shape = shape
                 )
         ) {
-            Text(
-                modifier = Modifier
-                    .align(Alignment.Center)
-                    .padding(contentPadding),
-                text = text,
-                color = if (enabled) White else Color(0xFFCCCCD6),
-                style = fontFamily.body2
+            if (loading) {
+                CircularProgressIndicator(
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .padding(vertical = 18.5.dp)
+                        .size(24.dp),
+                    color = Gray40
+                )
+            } else {
+                Text(
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .padding(contentPadding),
+                    text = text,
+                    color = if (enabled) White else Color(0xFFCCCCD6),
+                    style = fontFamily.body2
 
-            )
+                )
+            }
         }
     }
 }

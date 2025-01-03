@@ -10,11 +10,6 @@ class MyApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         initKoin(
-            listOf(
-//                loginRepositoryModule,
-                loginViewModelModule,
-//                org.leegeonhui.project.network.auth.login.di.loginViewModelModule
-            )
         )
     }
 }
