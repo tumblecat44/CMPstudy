@@ -10,8 +10,8 @@ internal class LoginService(
 ) : LoginDataSource{
     override suspend fun login(body: LoginRequest): LoginResponse {
         return LoginResponse(
-            status = 200,
-            state = "good",
+            status = 400,
+            state = "bad",
             message = "좋습니다",
             data = LoginData(
                 accessToken = "엑세스",

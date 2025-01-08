@@ -41,7 +41,6 @@ class LoginViewModel(
                 }
                 is Results.Success -> {
                     _uiState.update { it.copy(isLoading = false) }
-
                     _uiEffect.emit(LoginSideEffect.Success)
                 }
             }
